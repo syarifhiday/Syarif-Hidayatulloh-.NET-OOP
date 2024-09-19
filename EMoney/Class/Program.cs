@@ -1,45 +1,5 @@
-﻿using System;
-
-namespace EMoney
+﻿namespace EMoney.Class
 {
-    public class User
-    {
-        private string name;
-        private string role;
-        private int emoney;
-
-        public string NameUser { get { return name; } set { name = value; } }
-        public string RoleUser { get { return role; } set { role = value; } }
-        public int EmoneyUser { get { return emoney; } set { emoney = value; } }
-
-    }
-
-    public class Admin : User
-    {
-        public string AddSaldo(int amount, Customer customer)
-        {
-            customer.EmoneyUser += amount; // Tambahkan saldo ke customer
-            return $"Saldo berhasil ditambahkan sebesar {amount} ke {customer.NameUser}. Saldo baru: {customer.EmoneyUser}";
-        }
-    }
-
-    public class Customer : User
-    {
-        private int default_money = 1000; // Default saldo customer
-
-        // Override EmoneyUser untuk selalu mengambil default value
-        public new int EmoneyUser
-        {
-            get { return default_money; }
-            set { default_money = value; }
-        }
-
-        public string ViewSaldo()
-        {
-            return $"Saldo : {EmoneyUser}";
-        }
-    }
-
     public class Program
     {
         static void Main(string[] args)
